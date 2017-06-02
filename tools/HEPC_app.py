@@ -51,7 +51,7 @@ OUTPUT_DIR='/home/ciplab/PycharmProjects/server/images/output.jpg'
 FONT="/usr/share/fonts/truetype/nanum/NanumGothic.ttf"
 JSON_DIR='/home/ciplab/PycharmProjects/server/images/json.txt'
 
-
+rare_menu=['jangjorim']
 
 def demo(net, image_name):
     """Detect object classes in an image using pre-computed object proposals."""
@@ -89,6 +89,8 @@ def demo(net, image_name):
 
         if cls=='cookedrice':
             CONF_THRESH=0.4
+        elif cls in rare_menu:
+            CONF_THRESH = 0.95
         else:
             CONF_THRESH=0.05
 
